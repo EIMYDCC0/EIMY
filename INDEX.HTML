@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ponches Artesanales - Dulce Tentación</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Ponches Artesanales - Dulce Tentación</h1>
+        <p>Disfruta del mejor ponche artesanal, elaborado con ingredientes de calidad y un toque especial de dulce de leche.</p>
+    </header>
+
+    <section id="productos">
+        <h2>Nuestros Ponches</h2>
+        <div class="producto">
+            <img src="ponche-dulce-de-leche.jpg" alt="Ponche Dulce de Leche">
+            <h3>Ponche Dulce de Leche</h3>
+            <p>Un exquisito ponche con el sabor cremoso del dulce de leche, ideal para disfrutar en cualquier ocasión.</p>
+            <p><strong>Precio:</strong> $15.00</p>
+            <button onclick="realizarPedido('Ponche Dulce de Leche', 15)">Hacer Pedido</button>
+        </div>
+    </section>
+
+    <section id="pedido">
+        <h2>Realizar Pedido</h2>
+        <form id="form-pedido" onsubmit="procesarPedido(event)">
+            <label for="nombre">Nombre completo:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required>
+
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" name="direccion" required>
+
+            <label for="producto">Producto:</label>
+            <input type="text" id="producto" name="producto" readonly>
+
+            <label for="precio">Precio:</label>
+            <input type="text" id="precio" name="precio" readonly>
+
+            <button type="submit">Enviar Pedido</button>
+        </form>
+    </section>
+
+    <section id="qr-section">
+        <h2>Acceso Directo con Código QR</h2>
+        <p>Escanea este código QR para acceder a nuestra tienda desde tu dispositivo móvil.</p>
+        <img src="qr-code.png" alt="Código QR para la tienda de ponches">
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Dulce Tentación - Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function realizarPedido(producto, precio) {
+            document.getElementById('producto').value = producto;
+            document.getElementById('precio').value = "$" + precio;
+            window.scrollTo(0, document.getElementById('pedido').offsetTop);
+        }
+
+        function procesarPedido(event) {
+            event.preventDefault();
+            alert('¡Gracias por tu pedido! Nos pondremos en contacto contigo para confirmar la entrega.');
+            document.getElementById('form-pedido').reset();
+        }
+    </script>
+</body>
+</html>
